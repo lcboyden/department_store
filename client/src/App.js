@@ -8,6 +8,8 @@ import ProductView from "./screens/products/ProductView";
 import NoMatch from "./screens/NoMatch";
 import NavBar from "./components/NavBar";
 import Demo from "./screens/componentsDemo/Demo";
+import Departments from "./screens/departments/departments";
+import Department from "./screens/departments/department";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/demo" component={Demo} />
+          <Route exact path="/departments" component={Departments} />
+          <Route exact path="/departments/:id" component={Department} />
           <Route exact path="/products" component={Products} />
           <Route exact path="/products/:id" component={ProductView} />
           <Route exact component={NoMatch} />
