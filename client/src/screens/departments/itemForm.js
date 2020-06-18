@@ -9,9 +9,14 @@ export default function ItemForm(props) {
   async function handleSubmit() {
     if (props.id) {
       console.log("we should edit");
-
-      //{ id: props.id, name: name, price: price }
-      props.edit();
+      const res = await Axios.put(
+        `/api/departments/${props.did}/items/${props.id}`,
+        {
+          name: name,
+          price: price,
+        }
+      );
+      props.edit(res.data);
     } else {
       const res = await Axios.post(`/api/departments/${props.did}/items`, {
         name: name,
@@ -19,6 +24,8 @@ export default function ItemForm(props) {
       });
       props.add(res.data);
     }
+    setPrice("");
+    setName("");
   }
   return (
     <Form onSubmit={handleSubmit}>

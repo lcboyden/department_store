@@ -32,9 +32,11 @@ export default function Department(props) {
     console.log("handleAdd called");
     setItems([itemObj, ...items]);
   }
-  function handleEdit() {
+  function handleEdit(editObj) {
     // add stuff
     console.log("handleEdit called");
+    console.log(editObj); //Success!
+    setItems(items.map((i) => (i.id === editObj.id ? editObj : i)));
   }
 
   function renderItems() {

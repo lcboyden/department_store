@@ -14,6 +14,15 @@ class Api::ItemsController < ApplicationController
     end
   end
 
+  def update
+    item = Item.find(params[:id])
+    if item.update(item_params)
+      render json: item
+    else
+      render json: { errors: item.errors, status: 422 }
+    end
+  end
+
   def destroy
     item = Item.find(params[:id]).destroy
     render json: item
