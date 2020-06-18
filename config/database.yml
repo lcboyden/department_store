@@ -82,4 +82,4 @@ production:
   <<: *default
   database: department_store_production
   username: department_store
-  password: <%= ENV['RAILS_REACT_ROUTER_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DEPARTMENT_STORE_DATABASE_PASSWORD'] %>
